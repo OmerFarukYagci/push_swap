@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 17:51:47 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/07 18:08:06 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/07 18:12:31 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_number(char *str)
 	return (1);
 }
 
-int	ps_atol(const char *nptr)
+long	ps_atol(const char *nptr)
 {
 	int		i;
 	long	result;
