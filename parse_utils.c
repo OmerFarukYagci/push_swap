@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 17:51:47 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/09 00:13:45 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/09 01:02:09 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ long	ps_atol(const char *nptr)
 	return (result * sign);
 }
 
-int	check_duplicate()
+int	check_duplicate(t_stack *a, int number)
 {
 	
 }
 
-int	check_and_add(int start, int argc, char **argv)
+int	check_and_add(t_stack *a, int start, int argc, char **argv)
 {
 	int		i;
 	long	temp;
