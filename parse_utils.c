@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 17:51:47 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/09 01:02:09 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/09 15:39:58 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,18 @@ long	ps_atol(const char *nptr)
 
 int	check_duplicate(t_stack *a, int number)
 {
-	
+	t_number_node	*temp_node;
+
+	if (a == NULL || a->top == NULL)
+		return (0);
+	temp_node = a->top;
+	while (temp_node != NULL)
+	{
+		if (temp_node->value == number)
+			return (1);
+		temp_node = temp_node->next;
+	}
+	return (0);
 }
 
 int	check_and_add(t_stack *a, int start, int argc, char **argv)
@@ -88,7 +99,8 @@ int	check_and_add(t_stack *a, int start, int argc, char **argv)
 		temp = ps_atol(argv[i]);
 		if (temp > 2147483647 || temp < -2147483648)
 			return (0);
-			//check_duplicate
+		if (check_duplicate(a, argv[i]) == 1)
+			return (0);
 		i++;
 	}
 	return (1);
