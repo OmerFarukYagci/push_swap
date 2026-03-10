@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 17:51:47 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/09 15:39:58 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/10 12:31:34 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	check_and_add(t_stack *a, int start, int argc, char **argv)
 		temp = ps_atol(argv[i]);
 		if (temp > 2147483647 || temp < -2147483648)
 			return (0);
-		if (check_duplicate(a, argv[i]) == 1)
+		if (check_duplicate(a, (int)temp) == 1)
 			return (0);
 		i++;
 	}
