@@ -27,7 +27,7 @@ int	ps_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-int	check_number(char *str)
+static int	check_number(char *str)
 {
 	int	i;
 
@@ -45,7 +45,7 @@ int	check_number(char *str)
 	return (1);
 }
 
-long	ps_atol(const char *nptr)
+static long	ps_atol(const char *nptr)
 {
 	int		i;
 	long	result;
@@ -70,7 +70,7 @@ long	ps_atol(const char *nptr)
 	return (result * sign);
 }
 
-int	check_duplicate(t_stack *a, int number)
+static int	check_duplicate(t_stack *a, int number)
 {
 	t_number_node	*temp_node;
 
