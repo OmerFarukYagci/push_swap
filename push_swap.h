@@ -35,5 +35,6 @@ typedef struct s_settings
 
 int		ps_strncmp(const char *s1, const char *s2, size_t n);
 int		check_and_add(t_stack *a, int start, int argc, char **argv);
+char	**ft_split(char const *s, char c);
 
 #endif
