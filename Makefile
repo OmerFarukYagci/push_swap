@@ -5,7 +5,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c \
-	   parse_utils.c \
+	   parse_first_utils.c \
+	   parse_second_utils.c \
 	   struct_utils.c \
 
 OBJS = $(SRCS:.c=.o)
