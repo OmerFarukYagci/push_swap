@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <unistd.h>
 
 static int	c_w(const char *s, char c)
 {
@@ -94,4 +95,10 @@ char	**ft_split(char const *s, char c)
 	}
 	p[i] = 0;
 	return (p);
+}
+
+int	print_error(void)
+{
+	write(1, "Error\n", 6);
+	return (0);
 }
