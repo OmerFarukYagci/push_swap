@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	settings_control(t_settings *settings, int *i, int argc, char **argv)
+static void	sett_cont(t_settings *settings, int *i, int argc, char **argv)
 {
 	*i = 1;
 	settings->bench_mode = 0;
@@ -48,5 +48,5 @@ int	main(int argc, char **argv)
 	a.size = 0;
 	b.top = NULL;
 	b.size = 0;
-	settings_control(&settings, &i, argc, argv);
+	sett_cont(&settings, &i, argc, argv);
 }
