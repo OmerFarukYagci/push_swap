@@ -88,16 +88,14 @@ static int	check_duplicate(t_stack *a, int number)
 
 int	check_and_add(t_stack *a, int start, int argc, char **argv)
 {
-	int				i;
 	long			temp;
 	t_number_node	*node;
 
-	i = start;
-	while (i < argc)
+	while (start < argc)
 	{
-		if (check_number(argv[i]) == 0)
+		if (check_number(argv[start]) == 0)
 			return (0);
-		temp = ps_atol(argv[i]);
+		temp = ps_atol(argv[start]);
 		if (temp > 2147483647 || temp < -2147483648)
 			return (0);
 		if (check_duplicate(a, (int)temp) == 1)
@@ -106,7 +104,7 @@ int	check_and_add(t_stack *a, int start, int argc, char **argv)
 		if (node == NULL)
 			return (0);
 		add_stack_back(a, node);
-		i++;
+		start++;
 	}
 	return (1);
 }

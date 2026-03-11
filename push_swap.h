@@ -38,5 +38,6 @@ int				check_and_add(t_stack *a, int start, int argc, char **argv);
 char			**ft_split(char const *s, char c);
 t_number_node	*new_node(int value);
 void			add_stack_back(t_stack *stack, t_number_node *new_node);
+int				print_error(void);
 
 #endif

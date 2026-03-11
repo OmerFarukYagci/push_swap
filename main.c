@@ -49,4 +49,7 @@ int	main(int argc, char **argv)
 	b.top = NULL;
 	b.size = 0;
 	sett_cont(&settings, &i, argc, argv);
+	if (check_and_add(&a, i, argc, argv) == 0)
+		return (print_error());
+	return (0);
 }
