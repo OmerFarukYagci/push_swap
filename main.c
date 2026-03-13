@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:06:02 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/13 08:28:05 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/13 09:46:57 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 	t_settings	settings;
 
 	if (argc == 1)
-		return (1);
+		return (0);
 	a.top = NULL;
 	a.size = 0;
 	b.top = NULL;
