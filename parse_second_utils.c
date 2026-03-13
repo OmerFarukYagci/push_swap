@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:08:02 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/11 19:08:04 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/12 14:49:28 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,6 @@ char	**ft_split(char const *s, char c)
 
 int	print_error(void)
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	return (0);
 }
