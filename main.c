@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:06:02 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/08 23:16:19 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/13 08:28:05 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,18 @@ int	main(int argc, char **argv)
 	t_settings	settings;
 
 	if (argc == 1)
-		return (0);
+		return (1);
 	a.top = NULL;
 	a.size = 0;
 	b.top = NULL;
 	b.size = 0;
 	sett_cont(&settings, &i, argc, argv);
 	if (check_and_add(&a, i, argc, argv) == 0)
+	{
+		free_all_stack(&a);
 		return (print_error());
+	}
+	free_all_stack(&a);
+	free_all_stack(&b);
 	return (0);
 }
