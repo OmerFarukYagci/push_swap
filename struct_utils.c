@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:53:01 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/11 18:54:27 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/13 08:02:05 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	add_stack_back(t_stack *stack, t_number_node *new_node)
 
 	if (!stack || !new_node)
 		return ;
-	if (stack->top == NULL)
+	if (!stack->top)
 		stack->top = new_node;
 	else
 	{
@@ -43,4 +43,22 @@ void	add_stack_back(t_stack *stack, t_number_node *new_node)
 	}
 	size = &stack->size;
 	(*size)++;
+}
+
+void	free_all_stack(t_stack *stack)
+{
+	t_number_node	*next;
+	t_number_node	*temp;
+
+	if (!stack || !stack->top)
+		return ;
+	temp = stack->top;
+	while (temp != NULL)
+	{
+		next = temp->next;
+		free(temp);
+		temp = next;
+	}
+	stack->top = NULL;
+	stack->size = 0;
 }
