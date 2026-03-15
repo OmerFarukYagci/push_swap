@@ -93,6 +93,7 @@ int	check_and_add(t_stack *a, int start, int argc, char **argv)
 
 	while (start < argc)
 	{
+		ft_split(argv[start], ' ');
 		if (check_number(argv[start]) == 0)
 			return (0);
 		temp = ps_atol(argv[start]);
