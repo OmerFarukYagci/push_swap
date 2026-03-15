@@ -17,18 +17,18 @@ static void	sett_cont(t_settings *settings, int *i, int argc, char **argv)
 	*i = 1;
 	settings->bench_mode = 0;
 	settings->strategy = 0;
-	while (*i < argc)
+	while (*i < argc && settings->strategy == 0)
 	{
-		if (ps_strncmp(argv[*i], "--adaptive", 11) == 0)
-			settings->strategy = 0;
-		else if (ps_strncmp(argv[*i], "--simple", 9) == 0)
-			settings->strategy = 1;
-		else if (ps_strncmp(argv[*i], "--medium", 9) == 0)
-			settings->strategy = 2;
-		else if (ps_strncmp(argv[*i], "--complex", 10) == 0)
-			settings->strategy = 3;
-		else if (ps_strncmp(argv[*i], "--bench", 8) == 0)
+		if (ps_strncmp(argv[*i], "--bench", 8) == 0)
 			settings->bench_mode = 1;
+		else if (ps_strncmp(argv[*i], "--adaptive", 11) == 0)
+			settings->strategy = 1;
+		else if (ps_strncmp(argv[*i], "--simple", 9) == 0)
+			settings->strategy = 2;
+		else if (ps_strncmp(argv[*i], "--medium", 9) == 0)
+			settings->strategy = 3;
+		else if (ps_strncmp(argv[*i], "--complex", 10) == 0)
+			settings->strategy = 4;
 		else
 			break ;
 		(*i)++;
