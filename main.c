@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:06:02 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/16 16:53:34 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/16 18:43:26 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ static void	sett_cont(t_settings *settings, int *i, int argc, char **argv)
 	{
 		s = settings->strategy;
 		b = settings->bench_mode;
-		if (ps_strncmp(argv[*i], "--adaptive", 11) == 0 && s == 0)
+		if (ft_strncmp(argv[*i], "--adaptive", 11) == 0 && s == 0)
 			settings->strategy = 1;
-		else if (ps_strncmp(argv[*i], "--simple", 9) == 0 && s == 0)
+		else if (ft_strncmp(argv[*i], "--simple", 9) == 0 && s == 0)
 			settings->strategy = 2;
-		else if (ps_strncmp(argv[*i], "--medium", 9) == 0 && s == 0)
+		else if (ft_strncmp(argv[*i], "--medium", 9) == 0 && s == 0)
 			settings->strategy = 3;
-		else if (ps_strncmp(argv[*i], "--complex", 10) == 0 && s == 0)
+		else if (ft_strncmp(argv[*i], "--complex", 10) == 0 && s == 0)
 			settings->strategy = 4;
-		else if (ps_strncmp(argv[*i], "--bench", 8) == 0 && b == 0)
+		else if (ft_strncmp(argv[*i], "--bench", 8) == 0 && b == 0)
 			settings->bench_mode = 1;
 		else
 			break ;
