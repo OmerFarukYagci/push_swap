@@ -6,13 +6,13 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:53:06 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/16 17:54:15 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/16 23:19:16 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static int	c_w(const char *s, char c)
+static int	cnt_w(const char *s, char c)
 {
 	int	i;
 	int	count;
@@ -75,7 +75,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	i = 0;
-	p = (char **)malloc((c_w(s, c) + 1) * sizeof(char *));
+	p = (char **)malloc((cnt_w(s, c) + 1) * sizeof(char *));
 	if (!p)
 		return (NULL);
 	while (*s != '\0')

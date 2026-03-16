@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 17:51:47 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/16 18:45:08 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/16 22:15:58 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,34 +71,42 @@ static int	check_duplicate(t_stack *a, int number)
 	return (0);
 }
 
-int	check_and_add(t_stack *a, int start, int argc, char **argv)
+static int	check_point(char **split, t_stack *a)
 {
 	long			temp;
 	t_number_node	*node;
-	char			**split;
 	int				i;
+
+	i = 0;
+	while (split[i])
+	{
+		if (check_number(split[i]) == 0)
+			return (free_split(split));
+		temp = ps_atol(split[i]);
+		if (temp > 2147483647 || temp < -2147483648)
+			return (free_split(split));
+		if (check_duplicate(a, (int)temp) == 1)
+			return (free_split(split));
+		node = new_node(temp);
+		if (node == NULL)
+			return (free_split(split));
+		add_stack_back(a, node);
+		i++;
+	}
+	return (1);
+}
+
+int	check_and_add(t_stack *a, int start, int argc, char **argv)
+{
+	char			**split;
 
 	while (start < argc)
 	{
 		split = ft_split(argv[start], ' ');
 		if (!split || !split[0])
 			return (free_split(split));
-		i = 0;
-		while (split[i])
-		{
-			if (check_number(split[i]) == 0)
-				return (free_split(split));
-			temp = ps_atol(split[i]);
-			if (temp > 2147483647 || temp < -2147483648)
-				return (free_split(split));
-			if (check_duplicate(a, (int)temp) == 1)
-				return (free_split(split));
-			node = new_node(temp);
-			if (node == NULL)
-				return (free_split(split));
-			add_stack_back(a, node);
-			i++;
-		}
+		if (check_point(split, a) == 0)
+			return (0);
 		free_split(split);
 		start++;
 	}
