@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 17:51:47 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/13 09:35:53 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/16 17:45:03 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,21 +90,31 @@ int	check_and_add(t_stack *a, int start, int argc, char **argv)
 {
 	long			temp;
 	t_number_node	*node;
+	char			**split;
+	int				i;
 
 	while (start < argc)
 	{
-		ft_split(argv[start], ' ');
-		if (check_number(argv[start]) == 0)
-			return (0);
-		temp = ps_atol(argv[start]);
-		if (temp > 2147483647 || temp < -2147483648)
-			return (0);
-		if (check_duplicate(a, (int)temp) == 1)
-			return (0);
-		node = new_node(temp);
-		if (node == NULL)
-			return (0);
-		add_stack_back(a, node);
+		split = ft_split(argv[start], ' ');
+		if (!split || !split[0])
+			return (free_split(split));
+		i = 0;
+		while (split[i])
+		{
+			if (check_number(split[i]) == 0)
+				return (free_split(split));
+			temp = ps_atol(split[i]);
+			if (temp > 2147483647 || temp < -2147483648)
+				return (free_split(split));
+			if (check_duplicate(a, (int)temp) == 1)
+				return (free_split(split));
+			node = new_node(temp);
+			if (node == NULL)
+				return (free_split(split));
+			add_stack_back(a, node);
+			i++;
+		}
+		free_split(split);
 		start++;
 	}
 	return (1);

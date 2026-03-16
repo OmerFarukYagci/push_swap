@@ -8,6 +8,7 @@ SRCS = main.c \
 	   parse_first_utils.c \
 	   parse_second_utils.c \
 	   struct_utils.c \
+	   parse_split.c \
 
 OBJS = $(SRCS:.c=.o)
 
