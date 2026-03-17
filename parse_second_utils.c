@@ -44,9 +44,9 @@ float	compute_disorder(int *a, int size)
 	mistakes = 0;
 	total_pairs = 0;
 	i = 0;
-	j = i + 1;
 	while (i < size)
 	{
+		j = i + 1;
 		while (j < size)
 		{
 			total_pairs += 1;
