@@ -98,7 +98,7 @@ static int	check_point(char **split, t_stack *a)
 
 int	check_and_add(t_stack *a, int start, int argc, char **argv)
 {
-	char			**split;
+	char	**split;
 
 	while (start < argc)
 	{
