@@ -33,3 +33,28 @@ int	print_error(void)
 	write(2, "Error\n", 6);
 	return (1);
 }
+
+float	compute_disorder(int *a, int size)
+{
+	int	mistakes;
+	int	total_pairs;
+	int	i;
+	int	j;
+
+	mistakes = 0;
+	total_pairs = 0;
+	i = 0;
+	j = i + 1;
+	while (i < size)
+	{
+		while (j < size)
+		{
+			total_pairs += 1;
+			if (a[i] > a[j])
+				mistakes += 1;
+		}
+	}
+	if (total_pairs == 0)
+		return (0);
+	return ((float)mistakes / total_pairs);
+}
