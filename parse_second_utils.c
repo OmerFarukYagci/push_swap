@@ -52,7 +52,9 @@ float	compute_disorder(int *a, int size)
 			total_pairs += 1;
 			if (a[i] > a[j])
 				mistakes += 1;
+			j++;
 		}
+		i++;
 	}
 	if (total_pairs == 0)
 		return (0);
