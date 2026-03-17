@@ -30,7 +30,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 int	print_error(void)
 {
-	write(2, "Error\n", 6);
+	if (write(2, "Error\n", 6) == -1)
+		return (-1);
 	return (1);
 }
 
