@@ -6,26 +6,11 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 17:51:47 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/13 09:35:53 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/16 22:15:58 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ps_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
-	{
-		if ((unsigned char)s1[i] == (unsigned char)s2[i])
-			i++;
-		else
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-	}
-	return (0);
-}
 
 static int	check_number(char *str)
 {
@@ -86,25 +71,43 @@ static int	check_duplicate(t_stack *a, int number)
 	return (0);
 }
 
-int	check_and_add(t_stack *a, int start, int argc, char **argv)
+static int	check_point(char **split, t_stack *a)
 {
 	long			temp;
 	t_number_node	*node;
+	int				i;
+
+	i = 0;
+	while (split[i])
+	{
+		if (check_number(split[i]) == 0)
+			return (free_split(split));
+		temp = ps_atol(split[i]);
+		if (temp > 2147483647 || temp < -2147483648)
+			return (free_split(split));
+		if (check_duplicate(a, (int)temp) == 1)
+			return (free_split(split));
+		node = new_node(temp);
+		if (node == NULL)
+			return (free_split(split));
+		add_stack_back(a, node);
+		i++;
+	}
+	return (1);
+}
+
+int	check_and_add(t_stack *a, int start, int argc, char **argv)
+{
+	char			**split;
 
 	while (start < argc)
 	{
-		ft_split(argv[start], ' ');
-		if (check_number(argv[start]) == 0)
+		split = ft_split(argv[start], ' ');
+		if (!split || !split[0])
+			return (free_split(split));
+		if (check_point(split, a) == 0)
 			return (0);
-		temp = ps_atol(argv[start]);
-		if (temp > 2147483647 || temp < -2147483648)
-			return (0);
-		if (check_duplicate(a, (int)temp) == 1)
-			return (0);
-		node = new_node(temp);
-		if (node == NULL)
-			return (0);
-		add_stack_back(a, node);
+		free_split(split);
 		start++;
 	}
 	return (1);
