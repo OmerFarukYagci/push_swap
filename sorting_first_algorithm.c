@@ -11,3 +11,15 @@ void	sa(t_stack *a)
 	a->top->value = a->top->prev->value;
 	a->top->prev->value = tmp;
 }
+
+void	sb(t_stack *b)
+{
+	int	tmp;
+
+	tmp = 0;
+	if (b->size < 2)
+		return ;
+	tmp = b->top->value;
+	b->top->value = b->top->prev->value;
+	b->top->prev->value = tmp;
+}
