@@ -9,8 +9,8 @@ void	sa(t_stack *a, int printable)
 	if (a->size < 2)
 		return ;
 	tmp = a->top->value;
-	a->top->value = a->top->prev->value;
-	a->top->prev->value = tmp;
+	a->top->value = a->top->next->value;
+	a->top->next->value = tmp;
 	if (printable == 1)
 		write(1, "sa\n", 4);
 }
@@ -23,8 +23,8 @@ void	sb(t_stack *b, int printable)
 	if (b->size < 2)
 		return ;
 	tmp = b->top->value;
-	b->top->value = b->top->prev->value;
-	b->top->prev->value = tmp;
+	b->top->value = b->top->next->value;
+	b->top->next->value = tmp;
 	write(1, "sb\n", 4);
 }
 
