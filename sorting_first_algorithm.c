@@ -23,3 +23,9 @@ void	sb(t_stack *b)
 	b->top->value = b->top->prev->value;
 	b->top->prev->value = tmp;
 }
+
+void	ss(t_stack *stack)
+{
+	sa(stack);
+	sb(stack);
+}
