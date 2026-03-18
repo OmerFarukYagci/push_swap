@@ -25,7 +25,8 @@ void	sb(t_stack *b, int printable)
 	tmp = b->top->value;
 	b->top->value = b->top->next->value;
 	b->top->next->value = tmp;
-	write(1, "sb\n", 4);
+	if (printable == 1)
+		write(1, "sb\n", 4);
 }
 
 void	ss(t_stack *stack)
