@@ -19,6 +19,7 @@ typedef struct s_number_node
 {
 	int						value;
 	struct s_number_node	*next;
+	struct s_number_node	*prev;
 }							t_number_node;
 
 typedef struct s_stack
