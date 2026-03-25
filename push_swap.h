@@ -50,5 +50,8 @@ void			pb(t_stack *a, t_stack *b);
 void			ra(t_stack *a, int printable);
 void			rb(t_stack *b, int printable);
 void			rr(t_stack *stack);
+void			rra(t_stack *a, int printable);
+void			rrb(t_stack *b, int printable);
+void			rrr(t_stack *stack);
 
 #endif
