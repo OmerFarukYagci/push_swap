@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:08:33 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/24 14:08:35 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/25 15:10:12 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ra(t_stack *a, int printable)
 	first = a->top;
 	a->top = first->next;
 	first->next = NULL;
-
 	last = a->top;
 	while (last->next != NULL)
 		last = last->next;
@@ -42,7 +41,6 @@ void	rb(t_stack *b, int printable)
 	first = b->top;
 	b->top = first->next;
 	first->next = NULL;
-
 	last = b->top;
 	while (last->next != NULL)
 		last = last->next;
@@ -61,5 +59,4 @@ void	rr(t_stack *stack)
 void	rra(t_stack *a)
 {
 	// rra (reverse rotate a): Shift down all elements of stack a by one. The last element becomes the first one.
-
 }
