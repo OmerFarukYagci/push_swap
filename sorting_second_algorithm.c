@@ -56,7 +56,42 @@ void	rr(t_stack *stack)
 	write(1, "rr\n", 4);
 }
 
-void	rra(t_stack *a)
+void	rra(t_stack *a, int printable)
 {
-	// rra (reverse rotate a): Shift down all elements of stack a by one. The last element becomes the first one.
+	t_number_node	*last;
+	t_number_node	*prev;
+
+	if (!a || a->size < 2)
+		return ;
+	last = a->top;
+	prev = NULL;
+	while (last->next != NULL)
+	{
+		prev = last;
+		last = last->next;
+	}
+	prev->next = NULL;
+	a->top = last;
+	if (printable == 1)
+		write(1, "rra\n", 5);
+}
+
+void	rrb(t_stack *b, int printable)
+{
+	t_number_node	*last;
+	t_number_node	*prev;
+
+	if (!b || b->size < 2)
+		return ;
+	last = b->top;
+	prev = NULL;
+	while (last->next != NULL)
+	{
+		prev = last;
+		last = last->next;
+	}
+	prev->next = NULL;
+	b->top = last;
+	if (printable == 1)
+		write(1, "rrb\n", 5);
 }

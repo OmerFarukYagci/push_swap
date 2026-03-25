@@ -11,6 +11,7 @@ SRCS = main.c \
 	   parse_split.c \
 	   sorting_first_algorithm.c \
 	   sorting_second_algorithm.c \
+	   sorting_third_algorithm.c \
 
 OBJS = $(SRCS:.c=.o)
 
