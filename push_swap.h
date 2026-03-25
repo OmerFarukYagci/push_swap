@@ -42,5 +42,13 @@ t_number_node	*new_node(int value);
 void			add_stack_back(t_stack *stack, t_number_node *new_node);
 void			free_all_stack(t_stack *stack);
 float			compute_disorder(int *a, int size);
+void			sa(t_stack *a, int printable);
+void			sb(t_stack *b, int printable);
+void			ss(t_stack *stack);
+void			pa(t_stack *b, t_stack *a);
+void			pb(t_stack *a, t_stack *b);
+void			ra(t_stack *a, int printable);
+void			rb(t_stack *b, int printable);
+void			rr(t_stack *stack);
 
 #endif
