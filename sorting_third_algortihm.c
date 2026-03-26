@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 17:28:26 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/26 17:28:28 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/26 23:22:41 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	rrr(t_stack *stack)
 {
 	rra(stack, 0);
 	rrb(stack, 0);
-	write(1, "rrr\n", 5);
+	write(1, "rrr\n", 4);
 }

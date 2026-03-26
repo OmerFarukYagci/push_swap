@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:07:19 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/24 14:07:21 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/26 23:22:05 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	sa(t_stack *a, int printable)
 	a->top->value = a->top->next->value;
 	a->top->next->value = tmp;
 	if (printable == 1)
-		write(1, "sa\n", 4);
+		write(1, "sa\n", 3);
 }
 
 void	sb(t_stack *b, int printable)
@@ -38,14 +38,14 @@ void	sb(t_stack *b, int printable)
 	b->top->value = b->top->next->value;
 	b->top->next->value = tmp;
 	if (printable == 1)
-		write(1, "sb\n", 4);
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_stack *stack)
 {
 	sa(stack, 0);
 	sb(stack, 0);
-	write(1, "ss\n", 4);
+	write(1, "ss\n", 3);
 }
 
 void	pa(t_stack *b, t_stack *a)
@@ -60,7 +60,7 @@ void	pa(t_stack *b, t_stack *a)
 	a->size = a->size + 1;
 	b->top = tmp;
 	b->size = b->size - 1;
-	write(1, "pa\n", 4);
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack *a, t_stack *b)
@@ -75,5 +75,5 @@ void	pb(t_stack *a, t_stack *b)
 	b->size = b->size + 1;
 	a->top = tmp;
 	a->size = a->size - 1;
-	write(1, "pb\n", 4);
+	write(1, "pb\n", 3);
 }
