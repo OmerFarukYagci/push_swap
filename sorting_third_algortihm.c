@@ -13,9 +13,11 @@
 #include "push_swap.h"
 #include <unistd.h>
 
-void	rrr(t_stack *stack)
+void	rrr(t_stack *stack, t_operation_counter *operate)
 {
-	rra(stack, 0);
-	rrb(stack, 0);
+	rra(stack, 0,  NULL);
+	rrb(stack, 0, NULL);
 	write(1, "rrr\n", 4);
+	if (operate)
+		operate->rrr = operate->rrr + 1;
 }
