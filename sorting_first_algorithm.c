@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include <unistd.h>
 
-void	sa(t_stack *a, int printable)
+void	sa(t_stack *a, int printable, t_operation_counter *operate)
 {
 	int	tmp;
 
@@ -25,9 +25,11 @@ void	sa(t_stack *a, int printable)
 	a->top->next->value = tmp;
 	if (printable == 1)
 		write(1, "sa\n", 3);
+	if (operate)
+		operate->sa = operate->sa + 1;
 }
 
-void	sb(t_stack *b, int printable)
+void	sb(t_stack *b, int printable, t_operation_counter *operate)
 {
 	int	tmp;
 
@@ -39,16 +41,20 @@ void	sb(t_stack *b, int printable)
 	b->top->next->value = tmp;
 	if (printable == 1)
 		write(1, "sb\n", 3);
+	if (operate)
+		operate->sb = operate->sb + 1;
 }
 
-void	ss(t_stack *stack)
+void	ss(t_stack *stack, t_operation_counter *operate)
 {
 	sa(stack, 0);
 	sb(stack, 0);
 	write(1, "ss\n", 3);
+	if (operate)
+		operate->ss = operate->ss + 1;
 }
 
-void	pa(t_stack *b, t_stack *a)
+void	pa(t_stack *b, t_stack *a, t_operation_counter *operate)
 {
 	t_number_node	*tmp;
 
@@ -61,9 +67,11 @@ void	pa(t_stack *b, t_stack *a)
 	b->top = tmp;
 	b->size = b->size - 1;
 	write(1, "pa\n", 3);
+	if (operate)
+		operate->pa = operate->pa + 1;
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack *b, t_operation_counter *operate)
 {
 	t_number_node	*tmp;
 
@@ -76,4 +84,6 @@ void	pb(t_stack *a, t_stack *b)
 	a->top = tmp;
 	a->size = a->size - 1;
 	write(1, "pb\n", 3);
+	if (operate)
+		operate->pb = operate->pb + 1;
 }
