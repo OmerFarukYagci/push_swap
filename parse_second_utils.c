@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:08:02 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/16 18:48:21 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/27 16:03:47 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,29 @@ int	print_error(void)
 	return (1);
 }
 
-float	compute_disorder(int *a, int size)
+float	compute_disorder(t_stack *stack)
 {
-	int	mistakes;
-	int	total_pairs;
-	int	i;
-	int	j;
+	int				mistakes;
+	int				total_pairs;
+	t_number_node	*i;
+	t_number_node	*j;
 
+	if (!stack || !stack->top)
+		return (0);
 	mistakes = 0;
 	total_pairs = 0;
-	i = 0;
-	while (i < size)
+	i = stack->top;
+	while (i != NULL)
 	{
-		j = i + 1;
-		while (j < size)
+		j = i->next;
+		while (j != NULL)
 		{
 			total_pairs += 1;
-			if (a[i] > a[j])
+			if (i->value > j->value)
 				mistakes += 1;
-			j++;
+			j = j->next;
 		}
-		i++;
+		i = i->next;
 	}
 	if (total_pairs == 0)
 		return (0);

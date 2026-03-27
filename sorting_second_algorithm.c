@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:08:33 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/25 15:10:12 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/26 23:45:55 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ra(t_stack *a, int printable)
 		last = last->next;
 	last->next = first;
 	if (printable == 1)
-		write(1, "ra\n", 4);
+		write(1, "ra\n", 3);
 }
 
 void	rb(t_stack *b, int printable)
@@ -46,14 +46,14 @@ void	rb(t_stack *b, int printable)
 		last = last->next;
 	last->next = first;
 	if (printable == 1)
-		write(1, "rb\n", 4);
+		write(1, "rb\n", 3);
 }
 
 void	rr(t_stack *stack)
 {
 	ra(stack, 0);
 	rb(stack, 0);
-	write(1, "rr\n", 4);
+	write(1, "rr\n", 3);
 }
 
 void	rra(t_stack *a, int printable)
@@ -64,16 +64,16 @@ void	rra(t_stack *a, int printable)
 	if (!a || a->size < 2)
 		return ;
 	last = a->top;
-	prev = NULL;
 	while (last->next != NULL)
 	{
 		prev = last;
 		last = last->next;
 	}
 	prev->next = NULL;
+	last->next = a->top;
 	a->top = last;
 	if (printable == 1)
-		write(1, "rra\n", 5);
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *b, int printable)
@@ -84,14 +84,14 @@ void	rrb(t_stack *b, int printable)
 	if (!b || b->size < 2)
 		return ;
 	last = b->top;
-	prev = NULL;
 	while (last->next != NULL)
 	{
 		prev = last;
 		last = last->next;
 	}
 	prev->next = NULL;
+	last->next = b->top;
 	b->top = last;
 	if (printable == 1)
-		write(1, "rrb\n", 5);
+		write(1, "rrb\n", 4);
 }
