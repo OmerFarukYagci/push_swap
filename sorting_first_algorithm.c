@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:07:19 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/27 20:37:13 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/27 21:18:45 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	sa(t_stack *a, int printable, t_operation_counter *operate)
 {
 	int	tmp;
 
-	tmp = 0;
-	if (a->size < 2)
+	if (!a || a->size < 2)
 		return ;
+	tmp = 0;
 	tmp = a->top->value;
 	a->top->value = a->top->next->value;
 	a->top->next->value = tmp;
@@ -33,9 +33,9 @@ void	sb(t_stack *b, int printable, t_operation_counter *operate)
 {
 	int	tmp;
 
-	tmp = 0;
-	if (b->size < 2)
+	if (!b || b->size < 2)
 		return ;
+	tmp = 0;
 	tmp = b->top->value;
 	b->top->value = b->top->next->value;
 	b->top->next->value = tmp;
@@ -47,6 +47,8 @@ void	sb(t_stack *b, int printable, t_operation_counter *operate)
 
 void	ss(t_stack *a, t_stack *b, t_operation_counter *operate)
 {
+	if (!a || !b || a->size < 2 || b->size < 2)
+		return ;
 	sa(a, 0, NULL);
 	sb(b, 0, NULL);
 	write(1, "ss\n", 3);
@@ -58,7 +60,7 @@ void	pa(t_stack *b, t_stack *a, t_operation_counter *operate)
 {
 	t_number_node	*tmp;
 
-	if (b->size < 1)
+	if (!b || !a || b->size < 1)
 		return ;
 	tmp = b->top->next;
 	b->top->next = a->top;
@@ -75,7 +77,7 @@ void	pb(t_stack *a, t_stack *b, t_operation_counter *operate)
 {
 	t_number_node	*tmp;
 
-	if (a->size < 1)
+	if (!a || !b || a->size < 1)
 		return ;
 	tmp = a->top->next;
 	a->top->next = b->top;
