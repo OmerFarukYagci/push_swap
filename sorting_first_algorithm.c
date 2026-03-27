@@ -47,8 +47,8 @@ void	sb(t_stack *b, int printable, t_operation_counter *operate)
 
 void	ss(t_stack *stack, t_operation_counter *operate)
 {
-	sa(stack, 0);
-	sb(stack, 0);
+	sa(stack, 0, NULL);
+	sb(stack, 0, NULL);
 	write(1, "ss\n", 3);
 	if (operate)
 		operate->ss = operate->ss + 1;
