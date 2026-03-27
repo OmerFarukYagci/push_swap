@@ -63,11 +63,11 @@ void			sb(t_stack *b, int printable, t_operation_counter *operate)
 void			ss(t_stack *stack, t_operation_counter *operate)
 void			pa(t_stack *b, t_stack *a, t_operation_counter *operate)
 void			pb(t_stack *a, t_stack *b, t_operation_counter *operate)
-void			ra(t_stack *a, int printable);
-void			rb(t_stack *b, int printable);
-void			rr(t_stack *stack);
-void			rra(t_stack *a, int printable);
-void			rrb(t_stack *b, int printable);
-void			rrr(t_stack *stack);
+void			ra(t_stack *a, int printable, t_operation_counter *operate)
+void			rb(t_stack *b, int printable, t_operation_counter *operate)
+void			rr(t_stack *stack, t_operation_counter *operate)
+void			rra(t_stack *a, int printable, t_operation_counter *operate)
+void			rrb(t_stack *b, int printable, t_operation_counter *operate)
+void			rrr(t_stack *stack, t_operation_counter *operate)
 
 #endif
