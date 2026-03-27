@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:35:06 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/27 16:18:31 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/27 20:23:11 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct s_operation_counter
 	int	rrr;
 }	t_operation_counter;
 
-
 int				check_and_add(t_stack *a, int start, int argc, char **argv);
 int				print_error(void);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -58,16 +57,16 @@ t_number_node	*new_node(int value);
 void			add_stack_back(t_stack *stack, t_number_node *new_node);
 void			free_all_stack(t_stack *stack);
 float			compute_disorder(t_stack *stack);
-void			sa(t_stack *a, int printable, t_operation_counter *operate)
-void			sb(t_stack *b, int printable, t_operation_counter *operate)
-void			ss(t_stack *stack, t_operation_counter *operate)
-void			pa(t_stack *b, t_stack *a, t_operation_counter *operate)
-void			pb(t_stack *a, t_stack *b, t_operation_counter *operate)
-void			ra(t_stack *a, int printable, t_operation_counter *operate)
-void			rb(t_stack *b, int printable, t_operation_counter *operate)
-void			rr(t_stack *stack, t_operation_counter *operate)
-void			rra(t_stack *a, int printable, t_operation_counter *operate)
-void			rrb(t_stack *b, int printable, t_operation_counter *operate)
-void			rrr(t_stack *stack, t_operation_counter *operate)
+void			sa(t_stack *a, int printable, t_operation_counter *operate);
+void			sb(t_stack *b, int printable, t_operation_counter *operate);
+void			ss(t_stack *stack, t_operation_counter *operate);
+void			pa(t_stack *b, t_stack *a, t_operation_counter *operate);
+void			pb(t_stack *a, t_stack *b, t_operation_counter *operate);
+void			ra(t_stack *a, int printable, t_operation_counter *operate);
+void			rb(t_stack *b, int printable, t_operation_counter *operate);
+void			rr(t_stack *stack, t_operation_counter *operate);
+void			rra(t_stack *a, int printable, t_operation_counter *operate);
+void			rrb(t_stack *b, int printable, t_operation_counter *operate);
+void			rrr(t_stack *stack, t_operation_counter *operate);
 
 #endif
