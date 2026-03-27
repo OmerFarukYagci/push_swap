@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:35:06 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/16 18:50:36 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/27 15:16:40 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int				free_split(char **str);
 t_number_node	*new_node(int value);
 void			add_stack_back(t_stack *stack, t_number_node *new_node);
 void			free_all_stack(t_stack *stack);
-float			compute_disorder(int *a, int size);
+float			compute_disorder(t_stack *stack);
 void			sa(t_stack *a, int printable);
 void			sb(t_stack *b, int printable);
 void			ss(t_stack *stack);
