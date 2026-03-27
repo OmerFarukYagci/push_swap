@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:07:19 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/26 23:22:05 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/27 20:37:13 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	sb(t_stack *b, int printable, t_operation_counter *operate)
 		operate->sb = operate->sb + 1;
 }
 
-void	ss(t_stack *stack, t_operation_counter *operate)
+void	ss(t_stack *a, t_stack *b, t_operation_counter *operate)
 {
-	sa(stack, 0, NULL);
-	sb(stack, 0, NULL);
+	sa(a, 0, NULL);
+	sb(b, 0, NULL);
 	write(1, "ss\n", 3);
 	if (operate)
 		operate->ss = operate->ss + 1;

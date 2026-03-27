@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:35:06 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/27 20:23:11 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/27 20:50:43 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ void			free_all_stack(t_stack *stack);
 float			compute_disorder(t_stack *stack);
 void			sa(t_stack *a, int printable, t_operation_counter *operate);
 void			sb(t_stack *b, int printable, t_operation_counter *operate);
-void			ss(t_stack *stack, t_operation_counter *operate);
+void			ss(t_stack *a, t_stack *b, t_operation_counter *operate);
 void			pa(t_stack *b, t_stack *a, t_operation_counter *operate);
 void			pb(t_stack *a, t_stack *b, t_operation_counter *operate);
 void			ra(t_stack *a, int printable, t_operation_counter *operate);
 void			rb(t_stack *b, int printable, t_operation_counter *operate);
-void			rr(t_stack *stack, t_operation_counter *operate);
+void			rr(t_stack *a, t_stack *b, t_operation_counter *operate);
 void			rra(t_stack *a, int printable, t_operation_counter *operate);
 void			rrb(t_stack *b, int printable, t_operation_counter *operate);
-void			rrr(t_stack *stack, t_operation_counter *operate);
+void			rrr(t_stack *a, t_stack *b, t_operation_counter *operate);
 
 #endif

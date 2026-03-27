@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:08:33 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/26 23:45:55 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/27 20:40:35 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ void	rb(t_stack *b, int printable, t_operation_counter *operate)
 		operate->rb = operate->rb + 1;
 }
 
-void	rr(t_stack *stack, t_operation_counter *operate)
+void	rr(t_stack *a, t_stack *b, t_operation_counter *operate)
 {
-	ra(stack, 0, NULL);
-	rb(stack, 0, NULL);
+	ra(a, 0, NULL);
+	rb(b, 0, NULL);
 	write(1, "rr\n", 3);
 	if (operate)
 		operate->rr = operate->rr + 1;
