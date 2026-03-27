@@ -6,12 +6,12 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:08:02 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/27 15:55:35 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/27 16:03:47 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "push_swap.h"
+#include <unistd.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
