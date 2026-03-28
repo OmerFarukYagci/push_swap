@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:06:02 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/16 18:43:26 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/28 18:29:15 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,29 @@ static void	sett_cont(t_settings *settings, int *i, int argc, char **argv)
 			break ;
 		(*i)++;
 	}
+}
+
+static void	push_swap_engine(t_stack *a, t_stack *b, t_settings *settings)
+{
+	t_operation_counter	counter;
+	float				disorder;
+
+	if (settings->strategy == 0)
+		settings->strategy = 1;
+	set_counter(&counter);
+	disorder = compute_disorder(a);
+	if (disorder == 0.0f)
+		return ;
+	if (settings->strategy == 2 || (settings->strategy == 1 && disorder < 0.2f))
+		;
+	else if (settings->strategy == 3
+		|| (settings->strategy == 1 && disorder >= 0.2f && disorder < 0.5f))
+		;
+	else if (settings->strategy == 4
+		|| (settings->strategy == 1 && disorder >= 0.5f))
+		;
+	if (settings->bench_mode == 1)
+		;
 }
 
 int	main(int argc, char **argv)
