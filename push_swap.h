@@ -70,5 +70,6 @@ void			rra(t_stack *a, int printable, t_operation_counter *operate);
 void			rrb(t_stack *b, int printable, t_operation_counter *operate);
 void			rrr(t_stack *a, t_stack *b, t_operation_counter *operate);
 void			set_counter(t_operation_counter	*counter);
+void			radix_sort(t_stack *a, t_stack *b, t_operation_counter *operate);
 
 #endif
