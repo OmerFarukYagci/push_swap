@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:08:33 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/27 21:04:51 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/28 12:37:59 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	ra(t_stack *a, int printable, t_operation_counter *operate)
 	if (printable == 1)
 		write(1, "ra\n", 3);
 	if (operate)
+	{
 		operate->ra = operate->ra + 1;
+		operate->total_opr = operate->total_opr + 1;
+	}
 }
 
 void	rb(t_stack *b, int printable, t_operation_counter *operate)
@@ -50,7 +53,10 @@ void	rb(t_stack *b, int printable, t_operation_counter *operate)
 	if (printable == 1)
 		write(1, "rb\n", 3);
 	if (operate)
+	{
 		operate->rb = operate->rb + 1;
+		operate->total_opr = operate->total_opr + 1;
+	}
 }
 
 void	rr(t_stack *a, t_stack *b, t_operation_counter *operate)
@@ -61,7 +67,10 @@ void	rr(t_stack *a, t_stack *b, t_operation_counter *operate)
 	rb(b, 0, NULL);
 	write(1, "rr\n", 3);
 	if (operate)
+	{
 		operate->rr = operate->rr + 1;
+		operate->total_opr = operate->total_opr + 1;
+	}
 }
 
 void	rra(t_stack *a, int printable, t_operation_counter *operate)
@@ -83,7 +92,10 @@ void	rra(t_stack *a, int printable, t_operation_counter *operate)
 	if (printable == 1)
 		write(1, "rra\n", 4);
 	if (operate)
+	{
 		operate->rra = operate->rra + 1;
+		operate->total_opr = operate->total_opr + 1;
+	}
 }
 
 void	rrb(t_stack *b, int printable, t_operation_counter *operate)
@@ -105,5 +117,8 @@ void	rrb(t_stack *b, int printable, t_operation_counter *operate)
 	if (printable == 1)
 		write(1, "rrb\n", 4);
 	if (operate)
+	{
 		operate->rrb = operate->rrb + 1;
+		operate->total_opr = operate->total_opr + 1;
+	}
 }

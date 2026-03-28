@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:35:06 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/27 20:50:43 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/28 12:44:45 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_operation_counter
 	int	rra;
 	int	rrb;
 	int	rrr;
+	int	total_opr;
 }	t_operation_counter;
 
 int				check_and_add(t_stack *a, int start, int argc, char **argv);
@@ -68,5 +69,6 @@ void			rr(t_stack *a, t_stack *b, t_operation_counter *operate);
 void			rra(t_stack *a, int printable, t_operation_counter *operate);
 void			rrb(t_stack *b, int printable, t_operation_counter *operate);
 void			rrr(t_stack *a, t_stack *b, t_operation_counter *operate);
+void			set_counter(t_operation_counter	*counter);
 
 #endif
