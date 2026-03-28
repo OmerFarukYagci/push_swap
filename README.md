@@ -2,6 +2,10 @@
 
 # PUSH_SWAP && TÜRKÇE
 
+## Proje Hakkında
+
+`push_swap` iki adet stack (yığın) ve bir kaç adet komut kullanarak verilen tam sayıları en az hamleyle optimize şekilde sıralamayı hedefleyen bir algoritma projesidir. Karmaşıklık analizi ve algoritma optimizasyonu üzerinde odaklanılmasını sağlar.
+
 * **Programı Oluşturmak İçin:**
 
  ```bash
@@ -23,6 +27,10 @@
  ```
 
  # PUSH_SWAP && ENGLISH
+
+ ## About the Project
+
+ `push_swap` is an algorithm project that aims to sort given integers optimally with the fewest moves possible, using two stacks and a few instructions. It focuses on complexity analysis and algorithm optimization.
 
  * **To Compile the Program:**
 
