@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:06:02 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/28 18:29:15 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/28 18:33:22 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,11 @@ static void	push_swap_engine(t_stack *a, t_stack *b, t_settings *settings)
 	set_counter(&counter);
 	disorder = compute_disorder(a);
 	if (disorder == 0.0f)
+	{
+		if (settings->bench_mode == 1)
+			;
 		return ;
+	}
 	if (settings->strategy == 2 || (settings->strategy == 1 && disorder < 0.2f))
 		;
 	else if (settings->strategy == 3
@@ -82,6 +86,7 @@ int	main(int argc, char **argv)
 		free_all_stack(&a);
 		return (print_error());
 	}
+	push_swap_engine(&a, &b, &settings);
 	free_all_stack(&a);
 	free_all_stack(&b);
 	return (0);
