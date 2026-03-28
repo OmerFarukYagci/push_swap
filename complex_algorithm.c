@@ -39,8 +39,10 @@ void	radix_sort(t_stack *a, t_stack *b, t_operation_counter *operate)
 	int	max_bits;
 	int	i;
 	int	j;
-	int	j;
+	int	size;
 
+	if (!a || !b || !operate)
+		return ;
 	size = a->size;
 	max_bits = get_max_bits(a);
 	i = 0;
