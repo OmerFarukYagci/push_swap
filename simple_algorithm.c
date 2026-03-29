@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:48:58 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/29 11:13:44 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/29 11:26:16 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,9 @@ static	int	get_min_node(t_stack *a)
 		temp_node_index++;
 	}
 	return (min_node_index);
+}
+
+void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *operate)
+{
+	
 }
