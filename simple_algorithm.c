@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:48:58 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/29 13:33:00 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/29 14:07:01 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ static	int	get_min_node(t_stack *a)
 	return (min_node_index);
 }
 
+static	void	left_side(int *min_node_i, t_stack *a, t_operation_counter *opr)
+{
+	while ((*min_node_i) > 0)
+	{
+		ra(a, 1, opr);
+		(*min_node_i)--;
+	}
+}
+
 void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *operate)
 {
 	int	size;
@@ -49,11 +58,7 @@ void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *operate)
 		size = a->size;
 		if (min_node_index <= size / 2)
 		{
-			while (min_node_index > 0)
-			{
-				ra(a, 1, operate);
-				min_node_index--;
-			}
+			left_side(&min_node_index, a, operate);
 		}
 		else
 		{
@@ -65,4 +70,6 @@ void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *operate)
 		}
 		pb(a, b, operate);
 	}
+	while (b->size > 0)
+		pa(b, a, operate);
 }
