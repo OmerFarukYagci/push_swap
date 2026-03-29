@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:35:08 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/28 22:46:27 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/29 15:40:20 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	radix_sort(t_stack *a, t_stack *b, t_operation_counter *operate)
 	int	j;
 	int	size;
 
-	if (!a || !b || !operate)
+	if (!a || !b || !operate || !a->top)
 		return ;
 	size = a->size;
 	max_bits = get_max_bits(a);
