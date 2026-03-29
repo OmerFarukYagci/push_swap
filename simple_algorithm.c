@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:48:58 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/29 14:07:01 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/29 16:11:18 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,16 @@ static	int	get_min_node(t_stack *a)
 	return (min_node_index);
 }
 
-static	void	left_side(int *min_node_i, t_stack *a, t_operation_counter *opr)
+static	void	left_side(int *min_node_i, t_stack *a, t_operation_counter *op)
 {
 	while ((*min_node_i) > 0)
 	{
-		ra(a, 1, opr);
+		ra(a, 1, op);
 		(*min_node_i)--;
 	}
 }
 
-void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *operate)
+void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 {
 	int	size;
 	int	min_node_index;
@@ -58,18 +58,18 @@ void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *operate)
 		size = a->size;
 		if (min_node_index <= size / 2)
 		{
-			left_side(&min_node_index, a, operate);
+			left_side(&min_node_index, a, op);
 		}
 		else
 		{
 			while (min_node_index < size)
 			{
-				rra(a, 1, operate);
+				rra(a, 1, op);
 				min_node_index++;
 			}
 		}
-		pb(a, b, operate);
+		pb(a, b, op);
 	}
 	while (b->size > 0)
-		pa(b, a, operate);
+		pa(b, a, op);
 }
