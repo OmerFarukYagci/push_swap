@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 19:28:01 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/01 15:09:54 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/01 15:11:08 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,23 @@ static	void	print_string_error(char *str)
 	}
 }
 
+static void	print_number(int number)
+{
+	long	ln;
+	char	a;
+
+	ln = number;
+	if (ln < 0)
+	{
+		write(2, "-", 1);
+		ln = ln * -1;
+	}
+	if (ln > 9)
+		print_number(ln / 10);
+	a = (ln % 10) + '0';
+	write(2, &a, 1);
+}
+
 static	void	disorder_printer(float disorder)
 {
 	int	before_point;
@@ -35,11 +52,11 @@ static	void	disorder_printer(float disorder)
 	before_point = (int)(disorder * 100);
 	after_point = (int)(disorder * 10000) % 100;
 	print_string_error("[bench] disorder: ");
-	//print_number(before_point);
+	print_number(before_point);
 	print_string_error(".");
 	if (after_point < 10)
 		print_string_error("0");
-	//print_number(after_point);
+	print_number(after_point);
 	print_string_error("%\n");
 }
 
