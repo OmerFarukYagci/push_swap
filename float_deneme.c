@@ -50,16 +50,17 @@ char	*ft_itoa(int n)
 
 int main()
 {
-    volatile float a = 4.0f;
-    volatile float b = 100.0f;
+    // Derleyicinin optimizasyon yapmasını yasaklıyoruz
+    volatile float a = 4993.0f;
+    volatile float b = 10000.0f;
     
     float sonuc;
 
-    sonuc = a / b;
-    sonuc = sonuc * 100.0f;
+    sonuc = a / b;              // 0.4993 (Ama bellekte 0.4992999...)
+    sonuc = sonuc * 10000.0f;   // 4992.999... (10000 ile çarptık ki virgülden kurtulsun)
     
-    printf("Matematikte Beklenen : 4\n");
-    printf("C'nin Gercek Ciktisi : %s\n", ft_itoa(sonuc));
+    printf("Matematikte Beklenen : 4993\n");
+    printf("C'nin Gercek Ciktisi : %s\n", ft_itoa(sonuc)); // ft_itoa virgülden sonrasını kesecek!
     
     return 0;
 }
