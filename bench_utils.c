@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 19:28:01 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/01 16:01:40 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/01 16:13:49 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,33 @@ static	void	disorder_printer(float disorder)
 	print_string_error("%\n");
 }
 
+static	void	print_operations(t_operation_counter *op)
+{
+	print_string_error("\n[bench] sa: ");
+	print_number(op->sa);
+	print_string_error(" sb: ");
+	print_number(op->sb);
+	print_string_error(" ss: ");
+	print_number(op->ss);
+	print_string_error(" pa: ");
+	print_number(op->pa);
+	print_string_error(" pb: ");
+	print_number(op->pb);
+	print_string_error("\n[bench] ra: ");
+	print_number(op->ra);
+	print_string_error(" rb: ");
+	print_number(op->rb);
+	print_string_error(" rr: ");
+	print_number(op->rr);
+	print_string_error(" rra: ");
+	print_number(op->rra);
+	print_string_error(" rrb: ");
+	print_number(op->rrb);
+	print_string_error(" rrr: ");
+	print_number(op->rrr);
+	print_string_error("\n");
+}
+
 void	bench_mod(t_settings *set, t_operation_counter *op,	float dsr)
 {
 	if (!set || !op)
@@ -81,4 +108,7 @@ void	bench_mod(t_settings *set, t_operation_counter *op,	float dsr)
 		print_string_error("Medium / O(n√n)\n");
 	else if (set->strategy == 4)
 		print_string_error("Complex / O(n log n)\n");
+	print_string_error("[bench] total_ops: ");
+	print_number(op->total_opr);
+	print_operations(op);
 }
