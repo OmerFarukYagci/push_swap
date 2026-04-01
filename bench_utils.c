@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 19:28:01 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/01 15:21:52 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/01 16:01:40 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,20 @@ void	bench_mod(t_settings *set, t_operation_counter *op,	float dsr)
 	if (!set || !op)
 		return ;
 	disorder_printer(dsr);
+	print_string_error("[bench] strategy: ");
+	if (set->strategy == 1)
+	{
+		if (dsr < 0.2f)
+			print_string_error("Adaptive / O(n²)\n");
+		else if (dsr >= 0.2f && dsr < 0.5f)
+			print_string_error("Adaptive / O(n√n)\n");
+		else
+			print_string_error("Adaptive / O(n log n)\n");
+	}
+	else if (set->strategy == 2)
+		print_string_error("Simple / O(n²)\n");
+	else if (set->strategy == 3)
+		print_string_error("Medium / O(n√n)\n");
+	else if (set->strategy == 4)
+		print_string_error("Complex / O(n log n)\n");
 }
