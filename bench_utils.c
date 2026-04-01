@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 19:28:01 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/01 15:11:08 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/01 15:21:52 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static	void	disorder_printer(float disorder)
 	print_string_error("%\n");
 }
 
-void	bench_mod_printer(t_settings *set, t_operation_counter *op,	float dsr)
+void	bench_mod(t_settings *set, t_operation_counter *op,	float dsr)
 {
 	if (!set || !op)
 		return ;
