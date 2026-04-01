@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 19:28:01 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/29 19:50:24 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/03/31 20:17:00 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ static	void	print_string_error(char *str)
 	i = 0;
 	while (str[i])
 	{
-		write(2, str[i], 1);
+		write(2, &str[i], 1);
 		i++;
 	}
 }
 
 void	bench_mod_printer(t_settings *set, t_operation_counter *op,	float dsr)
 {
-	
+	if (!set || !op)
+		return ;
 }
