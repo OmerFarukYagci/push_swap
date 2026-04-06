@@ -6,72 +6,79 @@
 /*   By: yfirat <yfirat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:35:08 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/06 14:42:18 by yfirat           ###   ########.fr       */
+/*   Updated: 2026/04/06 16:11:06 by yfirat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	get_max_bits(t_stack *stack)
+static int	get_max_bits(int size)
 {
 	int	max_bits;
-	int	max_value;
+	int	max_idx;
 
-	if (!stack || !stack->top)
-		return (0);
-	max_value = stack->size -1;
+	max_idx = size - 1;
 	max_bits = 0;
-	while ((max_value >> max_bits) != 0)
+	while ((max_idx >> max_bits) != 0)
 		max_bits++;
 	return (max_bits);
 }
 
 void	assign_index(t_stack *a)
 {
-	t_number_node	*current;
-	t_number_node	*compare;
-	int				index;
+	t_number_node	*curr;
+	t_number_node	*comp;
+	int				idx;
 
-	current = a->top;
-	while (current)
+	curr = a->top;
+	while (curr)
 	{
-		index = 0;
-		compare = a->top;
-		while (compare)
+		idx = 0;
+		comp = a->top;
+		while (comp)
 		{
-			if (current->value > compare->value)
-				index++;
-			compare = compare->next;
+			if (curr->value > comp->value)
+				idx++;
+			comp = comp->next;
 		}
-		current->value = index;
-		current = current->next;
+		curr->index = idx;
+		curr = curr->next;
 	}
+}
+
+static void	execute_radix(t_stack *a, t_stack *b,
+				t_operation_counter *op, int i)
+{
+	int	j;
+	int	size;
+
+	j = 0;
+	size = a->size;
+	while (j < size)
+	{
+		if (((a->top->index >> i) & 1) == 1)
+			ra(a, 1, op);
+		else
+			pb(a, b, op);
+		j++;
+	}
+	while (b->size > 0)
+		pa(b, a, op);
 }
 
 void	radix_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 {
 	int	i;
-	int	j;
-	int	size;
 	int	max_bits;
 
-	if (!a || !b || !op || !a->top)
+	if (!a || !b || !op || !a->top || a->size < 2)
 		return ;
 	assign_index(a);
-	size = a->size;
-	max_bits = get_max_bits(a);
-	i = -1;
-	while (++i < max_bits)
+	max_bits = get_max_bits(a->size);
+	i = 0;
+	while (i < max_bits)
 	{
-		j = -1;
-		while (++j < size)
-		{
-			if (((a->top->value >> i) & 1) == 1)
-				ra(a, 1, op);
-			else
-				pb(a, b, op);
-		}
-		while (b->size > 0)
-			pa(b, a, op);
+		execute_radix(a, b, op, i);
+		i++;
 	}
 }
