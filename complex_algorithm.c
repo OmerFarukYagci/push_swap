@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex_algorithm.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: abusivesnake <abusivesnake@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:35:08 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/28 22:46:27 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/06 14:23:24 by abusivesnak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ static int	get_max_bits(t_stack *stack)
 	return (max_bits);
 }
 
-void	radix_sort(t_stack *a, t_stack *b, t_operation_counter *operate)
+void	radix_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 {
 	int	max_bits;
 	int	i;
 	int	j;
 	int	size;
 
-	if (!a || !b || !operate || !a->top)
+	if (!a || !b || !op || !a->top)
 		return ;
 	size = a->size;
 	max_bits = get_max_bits(a);
@@ -52,13 +52,13 @@ void	radix_sort(t_stack *a, t_stack *b, t_operation_counter *operate)
 		while (j < size)
 		{
 			if (((a->top->value >> i) & 1) == 1)
-				ra(a, 1, operate);
+				ra(a, 1, op);
 			else
-				pb (a, b, operate);
+				pb (a, b, op);
 			j++;
 		}
 		while (b->size > 0)
-			pa(b, a, operate);
+			pa(b, a, op);
 		i++;
 	}
 }

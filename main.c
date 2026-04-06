@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:06:02 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/28 18:33:22 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/01 15:22:22 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,19 @@ static void	push_swap_engine(t_stack *a, t_stack *b, t_settings *settings)
 	if (disorder == 0.0f)
 	{
 		if (settings->bench_mode == 1)
-			;
+			bench_mod(settings, &counter, disorder);
 		return ;
 	}
 	if (settings->strategy == 2 || (settings->strategy == 1 && disorder < 0.2f))
-		;
+		selection_sort(a, b, &counter);
 	else if (settings->strategy == 3
 		|| (settings->strategy == 1 && disorder >= 0.2f && disorder < 0.5f))
 		;
 	else if (settings->strategy == 4
 		|| (settings->strategy == 1 && disorder >= 0.5f))
-		;
+		radix_sort(a, b, &counter);
 	if (settings->bench_mode == 1)
-		;
+		bench_mod(settings, &counter, disorder);
 }
 
 int	main(int argc, char **argv)

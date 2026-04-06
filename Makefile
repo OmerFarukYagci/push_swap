@@ -14,6 +14,8 @@ SRCS = main.c \
 	   sorting_third_algorithm.c \
 	   complex_algorithm.c \
 	   simple_algorithm.c \
+	   bench_utils.c \
+	   medium_algorithm.c \
 
 OBJS = $(SRCS:.c=.o)
 

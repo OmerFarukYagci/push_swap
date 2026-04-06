@@ -3,61 +3,76 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: abusivesnake <abusivesnake@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:48:58 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/28 22:48:59 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/06 14:22:34 by abusivesnak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	get_minimum_pos(t_stack *stack)
+static	int	get_min_node(t_stack *a)
 {
-	t_number_node	*current;
+	t_number_node	*temp;
 	int				min_value;
-	int				min_pos;
-	int				i;
+	int				min_node_index;
+	int				temp_node_index;
 
-	if (!stack->top)
+	if (!a || !a->top)
 		return (-1);
-	current = stack->top;
-	min_value = current->value;
-	min_pos = 0;
-	i = 0;
-	while (current)
+	temp = a->top;
+	min_value = temp->value;
+	min_node_index = 0;
+	temp_node_index = 0;
+	while (temp != NULL)
 	{
-		if (current->value < min_value)
+		if (temp->value < min_value)
 		{
-			min_value = current->value;
-			min_pos = i;
+			min_value = temp->value;
+			min_node_index = temp_node_index;
 		}
-		current = current->next;
-		i++;
+		temp = temp->next;
+		temp_node_index++;
 	}
-	return (min_pos);
+	return (min_node_index);
 }
 
-void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *operate)
+static	void	left_side(int *i, t_stack *a, t_operation_counter *op)
 {
-	int	min_pos;
+	while ((*i) > 0)
+	{
+		ra(a, 1, op);
+		(*i)--;
+	}
+}
 
+static	void	right_side(int *i, t_stack *a, t_operation_counter *op, int s)
+{
+	while ((*i) < s)
+	{
+		rra(a, 1, op);
+		(*i)++;
+	}
+}
+
+void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *op)
+{
+	int	size;
+	int	min_node_index;
+
+	if (!a || !b || !op)
+		return ;
 	while (a->size > 0)
 	{
-		min_pos = get_minimum_pos(a);
-		if (min_pos <= a->size / 2)
-		{
-			while (min_pos-- > 0)
-				ra(a, 1, operate);
-		}
+		min_node_index = get_min_node(a);
+		size = a->size;
+		if (min_node_index <= size / 2)
+			left_side(&min_node_index, a, op);
 		else
-		{
-			min_pos = a->size - min_pos;
-			while (min_pos-- > 0)
-				rra(a, 1, operate);
-		}
-		pb(a, b, 1, operate);
+			right_side(&min_node_index, a, op, size);
+		pb(a, b, op);
 	}
-	while(b->size > 0)
-		pa(b, a, operate);
+	while (b->size > 0)
+		pa(b, a, op);
 }
