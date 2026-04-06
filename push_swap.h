@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abusivesnake <abusivesnake@student.42.f    +#+  +:+       +#+        */
+/*   By: yfirat <yfirat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:35:06 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/06 14:21:28 by abusivesnak      ###   ########.fr       */
+/*   Updated: 2026/04/06 14:39:03 by yfirat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
