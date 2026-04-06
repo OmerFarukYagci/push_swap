@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abusivesnake <abusivesnake@student.42.f    +#+  +:+       +#+        */
+/*   By: yfirat <yfirat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:48:58 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/06 14:22:34 by abusivesnak      ###   ########.fr       */
+/*   Updated: 2026/04/06 14:39:12 by yfirat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
