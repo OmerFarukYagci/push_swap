@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: yfirat <yfirat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:35:06 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/03 01:15:11 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/06 16:09:43 by yfirat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct s_number_node
 {
 	int						value;
+	int						index;
 	struct s_number_node	*next;
 }							t_number_node;
 
