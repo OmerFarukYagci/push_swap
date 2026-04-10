@@ -70,9 +70,14 @@ static	void	create_chunks(t_stack *a, t_stack *b, t_operation_counter *op)
 			pb(a, b, op);
 			rb(b, 0, op);
 		}
+		else if (a->top->value <= i + offset)
+		{
+			pb(a, b, op);
+			i++;
+		}
+		else
+			ra(a, 0, op);
 	}
-	// Bu fonksiyon stack A'da indekslenmiş olan düzensiz sayıları
-	// stack B'ye büyüklüklerine göre gruplayarak kabaca aktaracaktır.
 }
 
 void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
