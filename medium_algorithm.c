@@ -38,23 +38,39 @@ static	void	convert_to_index(t_stack *a)
 				new_index++;
 			runner_node = runner_node->next;
 		}
-		index_array[i] = new_index;
+		index_array[i++] = new_index;
 		temp_node = temp_node->next;
-		i++;
 	}
 	temp_node = a->top;
 	i = 0;
 	while (temp_node)
 	{
-		temp_node->value = index_array[i];
+		temp_node->value = index_array[i++];
 		temp_node = temp_node->next;
-		i++;
 	}
 	free(index_array);
 }
 
 static	void	create_chunks(t_stack *a, t_stack *b, t_operation_counter *op)
 {
+	int	i;
+	int	offset;
+
+	if (!a || a->size == 0)
+		return ;
+	if (a->size <= 100)
+		offset = 15;
+	else
+		offset = 35;
+	i = 0;
+	while (a->size > 0)
+	{
+		if (a->top->value <= i)
+		{
+			pb(a, b, op);
+			rb(b, 0, op);
+		}
+	}
 	// Bu fonksiyon stack A'da indekslenmiş olan düzensiz sayıları
 	// stack B'ye büyüklüklerine göre gruplayarak kabaca aktaracaktır.
 }
