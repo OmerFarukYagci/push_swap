@@ -59,7 +59,7 @@ static void	push_swap_engine(t_stack *a, t_stack *b, t_settings *settings)
 		selection_sort(a, b, &counter);
 	else if (settings->strategy == 3
 		|| (settings->strategy == 1 && disorder >= 0.2f && disorder < 0.5f))
-		;
+		chunk_sort(a, b, &counter);
 	else if (settings->strategy == 4
 		|| (settings->strategy == 1 && disorder >= 0.5f))
 		radix_sort(a, b, &counter);

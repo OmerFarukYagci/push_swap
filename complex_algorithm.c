@@ -24,7 +24,7 @@ static int	get_max_bits(int size)
 	return (max_bits);
 }
 
-void	assign_index(t_stack *a)
+static void	assign_index(t_stack *a)
 {
 	t_number_node	*curr;
 	t_number_node	*comp;
