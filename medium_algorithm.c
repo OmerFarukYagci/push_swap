@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 00:25:35 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/12 18:43:55 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/12 18:46:05 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,85 @@ static	void	convert_to_index(t_stack *a)
 		temp_node = temp_node->next;
 	}
 	free(index_array);
+}
+
+static int	get_max_pos(t_stack *b)
+{
+	t_number_node	*temp;
+	int				max_pos;
+	int				max_value;
+	int				current_pos;
+
+	if (!b || !b->top)
+		return (-1);
+	temp = b->top;
+	max_value = temp->value;
+	max_pos = 0;
+	current_pos = 0;
+	while (temp)
+	{
+		if (temp->value > max_value)
+		{
+			max_value = temp->value;
+			max_pos = current_pos;
+		}
+		temp = temp->next;
+		current_pos++;
+	}
+	return (max_pos);
+}
+
+void	push_back_a(t_stack *a, t_stack *b, t_operation_counter *op)
+{
+	int	max_pos;
+
+	while (b->size > 0)
+	{
+		max_pos = get_max_pos(b);
+		if (max_pos <= b->size / 2)
+		{
+			while (max_pos > 0)
+			{
+				rb(b, 1, op);
+				max_pos--;
+			}
+		}
+		else
+		{
+			while (max_pos < b->size)
+			{
+				rrb(b, 1, op);
+				max_pos++;
+			}
+		}
+		pa(b, a, op);
+	}
+}
+
+void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
+{
+	int	i;
+	int	offset;
+
+	if (!a || !b || !op || a->size < 2)
+		return ;
+	convert_to_index(a);
+	if (a->size <= 100)
+		offset = 15;
+	else
+		offset = 35;
+	i = 0;
+	while (a->size > 0)
+	{
+		if (a->top->value <= i++)
+		{
+			pb(a, b, op);
+			rb(b, 1, op);
+		}
+		else if (a->top->value <= (i++) + offset)
+			pb(a, b, op);
+		else
+			ra(a, 1, op);
+	}
+	push_back_a(a, b, op);
 }
