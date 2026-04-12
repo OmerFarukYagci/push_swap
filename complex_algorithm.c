@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex_algorithm.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yfirat <yfirat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:35:08 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/06 16:11:06 by yfirat           ###   ########.fr       */
+/*   Updated: 2026/04/12 18:46:28 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
