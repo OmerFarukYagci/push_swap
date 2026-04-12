@@ -53,7 +53,7 @@ static	void	convert_to_index(t_stack *a)
 
 static	void	create_chunks(t_stack *a, t_stack *b, t_operation_counter *op)
 {
-	// Buradaki kodlar yeniden incelenerek yazılacak.
+	// Buradaki kodlar sıfırdan yazılacak, gözden geçirilecek.
 }
 
 void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
