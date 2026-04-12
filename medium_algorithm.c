@@ -104,11 +104,14 @@ void	push_back_a(t_stack *a, t_stack *b, t_operation_counter *op)
 	}
 }
 
-static void	create_chunks(t_stack *a, t_stack *b, t_operation_counter *op)
+void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 {
 	int	i;
 	int	offset;
 
+	if (!a || !b || !op || a->size < 2)
+		return ;
+	convert_to_index(a);
 	if (a->size <= 100)
 		offset = 15;
 	else
@@ -116,27 +119,15 @@ static void	create_chunks(t_stack *a, t_stack *b, t_operation_counter *op)
 	i = 0;
 	while (a->size > 0)
 	{
-		if (a->top->value <= i)
+		if (a->top->value <= i++)
 		{
 			pb(a, b, op);
 			rb(b, 1, op);
-			i++;
 		}
-		else if (a->top->value <= i + offset)
-		{
+		else if (a->top->value <= (i++) + offset)
 			pb(a, b, op);
-			i++;
-		}
 		else
 			ra(a, 1, op);
 	}
 	push_back_a(a, b, op);
-}
-
-void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
-{
-	if (!a || !b || !op || a->size < 2)
-		return ;
-	convert_to_index(a);
-	create_chunks(a, b, op);
 }
