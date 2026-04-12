@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 00:25:35 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/12 18:46:05 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/12 18:50:30 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	calc_i(int *index_array, t_stack *a)
 	}
 }
 
-static	void	convert_to_index(t_stack *a)
+static void	convert_to_index(t_stack *a)
 {
 	int				i;
 	int				*index_array;
@@ -85,7 +85,7 @@ static int	get_max_pos(t_stack *b)
 	return (max_pos);
 }
 
-void	push_back_a(t_stack *a, t_stack *b, t_operation_counter *op)
+static void	push_back_a(t_stack *a, t_stack *b, t_operation_counter *op)
 {
 	int	max_pos;
 
