@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yfirat <yfirat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:48:58 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/06 14:39:12 by yfirat           ###   ########.fr       */
+/*   Updated: 2026/04/12 18:47:01 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
