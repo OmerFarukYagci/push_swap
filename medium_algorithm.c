@@ -51,13 +51,67 @@ static	void	convert_to_index(t_stack *a)
 	free(index_array);
 }
 
-static	void	create_chunks(t_stack *a, t_stack *b, t_operation_counter *op)
+static int	get_max_pos(t_stack *b)
+{
+	t_number_node	*temp;
+	int				max_pos;
+	int				max_value;
+	int				current_pos;
+
+	if (!b || !b->top)
+		return (-1);
+	temp = b->top;
+	max_value = temp->value;
+	max_pos = 0;
+	current_pos = 0;
+	while (temp)
+	{
+		if (temp->value > max_value)
+		{
+			max_value = temp->value;
+			max_pos = current_pos;
+		}
+		temp = temp->next;
+		current_pos++;
+	}
+	return (max_pos);
+}
+
+void	push_back_a(t_stack *a, t_stack *b, t_operation_counter *op)
+{
+	int	max_pos;
+
+	while (b->size > 0)
+	{
+		max_pos = get_max_pos(b);
+		if (max_pos <= b->size / 2)
+		{
+			while (max_pos > 0)
+			{
+				rb(b, 1, op);
+				max_pos--;
+			}
+		}
+		else
+		{
+			while (max_pos < b->size)
+			{
+				rrb(b, 1, op);
+				max_pos++;
+			}
+		}
+		pa(b, a, op);
+	}
+}
+
+void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 {
 	int	i;
 	int	offset;
 
-	if (!a || a->size == 0)
+	if (!a || !b || !op || a->size < 2)
 		return ;
+	convert_to_index(a);
 	if (a->size <= 100)
 		offset = 15;
 	else
@@ -65,25 +119,15 @@ static	void	create_chunks(t_stack *a, t_stack *b, t_operation_counter *op)
 	i = 0;
 	while (a->size > 0)
 	{
-		if (a->top->value <= i)
+		if (a->top->value <= i++)
 		{
 			pb(a, b, op);
-			rb(b, 0, op);
+			rb(b, 1, op);
 		}
-		else if (a->top->value <= i + offset)
-		{
+		else if (a->top->value <= (i++) + offset)
 			pb(a, b, op);
-			i++;
-		}
 		else
-			ra(a, 0, op);
+			ra(a, 1, op);
 	}
-}
-
-void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
-{
-	if (!a || !b || !op || a->size < 2)
-		return ;
-	convert_to_index(a);
-	create_chunks(a, b, op);
+	push_back_a(a, b, op);
 }
