@@ -51,9 +51,86 @@ static	void	convert_to_index(t_stack *a)
 	free(index_array);
 }
 
-static	void	create_chunks(t_stack *a, t_stack *b, t_operation_counter *op)
+static int	get_max_pos(t_stack *b)
 {
-	// Buradaki kodlar sıfırdan yazılacak, gözden geçirilecek.
+	t_number_node	*temp;
+	int				max_pos;
+	int				max_value;
+	int				current_pos;
+
+	if (!b || !b->top)
+		return (-1);
+	temp = b->top;
+	max_value = temp->value;
+	max_pos = 0;
+	current_pos = 0;
+	while (temp)
+	{
+		if (temp->value > max_value)
+		{
+			max_value = temp->value;
+			max_pos = current_pos;
+		}
+		temp = temp->next;
+		current_pos++;
+	}
+	return (max_pos);
+}
+
+void	push_back_a(t_stack *a, t_stack *b, t_operation_counter *op)
+{
+	int	max_pos;
+
+	while (b->size > 0)
+	{
+		max_pos = get_max_pos(b);
+		if (max_pos <= b->size / 2)
+		{
+			while (max_pos > 0)
+			{
+				rb(b, 1, op);
+				max_pos--;
+			}
+		}
+		else
+		{
+			while (max_pos < b->size)
+			{
+				rrb(b, 1, op);
+				max_pos++;
+			}
+		}
+		pa(b, a, op);
+	}
+}
+
+static void	create_chunks(t_stack *a, t_stack *b, t_operation_counter *op)
+{
+	int	i;
+	int	offset;
+
+	if (a->size <= 100)
+		offset = 15;
+	else
+		offset = 35;
+	i = 0;
+	while (a->size > 0)
+	{
+		if (a->top->value <= i)
+		{
+			pb(a, b, op);
+			rb(b, 1, op);
+			i++;
+		}
+		else if (a->top->value <= i + offset)
+		{
+			pb(a, b, op);
+			i++;
+		}
+		else
+			ra(a, 1, op);
+	}
+	push_back_a(a, b, op);
 }
 
 void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
