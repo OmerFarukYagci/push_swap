@@ -53,31 +53,7 @@ static	void	convert_to_index(t_stack *a)
 
 static	void	create_chunks(t_stack *a, t_stack *b, t_operation_counter *op)
 {
-	int	i;
-	int	offset;
-
-	if (!a || a->size == 0)
-		return ;
-	if (a->size <= 100)
-		offset = 15;
-	else
-		offset = 35;
-	i = 0;
-	while (a->size > 0)
-	{
-		if (a->top->value <= i)
-		{
-			pb(a, b, op);
-			rb(b, 0, op);
-		}
-		else if (a->top->value <= i + offset)
-		{
-			pb(a, b, op);
-			i++;
-		}
-		else
-			ra(a, 0, op);
-	}
+	// Buradaki kodlar yeniden incelenerek yazılacak.
 }
 
 void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
