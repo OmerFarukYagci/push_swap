@@ -61,6 +61,10 @@ Proje geliştirme sürecinde, C programlama dilinin veri yapıları konseptinden
 - [Selection Sort - GeeksforGeeks](https://www.geeksforgeeks.org/selection-sort/)
 - Zaman/İşlem Karmaşıklığı (Big-O Notation) rehber kaynakları.
 
+### AI Usage (Yapay Zeka Kullanımı)
+Bu projede yapay zeka (AI) kullanımı temel düzeyde ve rehberlik amacıyla gerçekleştirilmiştir:
+- **Konsept ve Karşılaştırma:** Farklı sıralama algoritmalarının (Radix, Selection, Chunk) arkasında yatan matematiksel temelleri anlamak, zaman karmaşıklıkları (Big-O Notation) ile programdan beklenen işlem (hamle) sınırları arasındaki teorik korelasyonu (O(N log N) vs O(N²)) daha net kavramak ve bu standartların `push_swap` kısıtlamalarına uyarlanması aşamasında beyin fırtınaları yürütmek amacıyla soyut bir rehber olarak kullanılmıştır.
+
 ## **Technical Choices and Algorithms Selected (Teknik Seçimler ve Algoritmalar)**
 
 Projemizde, kullanılacak sıralama algoritmasının belirlenmesinde iki ana karar mekanizması mevcuttur:
