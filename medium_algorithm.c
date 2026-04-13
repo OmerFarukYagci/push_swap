@@ -37,7 +37,7 @@ static void	calc_i(int *index_array, t_stack *a)
 	}
 }
 
-static void	convert_to_index(t_stack *a)
+void	convert_to_index(t_stack *a)
 {
 	int				i;
 	int				*index_array;

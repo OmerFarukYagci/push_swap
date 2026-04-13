@@ -24,28 +24,6 @@ static int	get_max_bits(int size)
 	return (max_bits);
 }
 
-static void	assign_index(t_stack *a)
-{
-	t_number_node	*curr;
-	t_number_node	*comp;
-	int				idx;
-
-	curr = a->top;
-	while (curr)
-	{
-		idx = 0;
-		comp = a->top;
-		while (comp)
-		{
-			if (curr->value > comp->value)
-				idx++;
-			comp = comp->next;
-		}
-		curr->index = idx;
-		curr = curr->next;
-	}
-}
-
 static void	execute_radix(t_stack *a, t_stack *b,
 				t_operation_counter *op, int i)
 {
@@ -56,7 +34,7 @@ static void	execute_radix(t_stack *a, t_stack *b,
 	size = a->size;
 	while (j < size)
 	{
-		if (((a->top->index >> i) & 1) == 1)
+		if (((a->top->value >> i) & 1) == 1)
 			ra(a, 1, op);
 		else
 			pb(a, b, op);
@@ -73,7 +51,7 @@ void	radix_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 
 	if (!a || !b || !op || !a->top || a->size < 2)
 		return ;
-	assign_index(a);
+	convert_to_index(a);
 	max_bits = get_max_bits(a->size);
 	i = 0;
 	while (i < max_bits)

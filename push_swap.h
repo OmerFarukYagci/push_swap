@@ -18,7 +18,6 @@
 typedef struct s_number_node
 {
 	int						value;
-	int						index;
 	struct s_number_node	*next;
 }							t_number_node;
 
@@ -75,5 +74,6 @@ void			radix_sort(t_stack *a, t_stack *b, t_operation_counter *op);
 void			selection_sort(t_stack *a, t_stack *b, t_operation_counter *op);
 void			bench_mod(t_settings *set, t_operation_counter *op,	float dsr);
 void			chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op);
+void			convert_to_index(t_stack *a);
 
 #endif
