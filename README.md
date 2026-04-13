@@ -2,13 +2,13 @@
 
 # push_swap
 
-## **Description**
+## **Description (Açıklama)**
 
 `push_swap` projesi, iki adet yığın (Stack A ve Stack B) ve kısıtlı sayıda işlem (push, swap, rotate, reverse rotate) setini kullanarak verilen rastgele tam sayıları en düşük hamle (işlem) sayısıyla sıralamayı amaçlayan temel bir 42 algoritma projesidir.
 
 Projenin temel amacı, klasik ve yeni veri sıralama algoritmalarını `push_swap` kurallarına uydurmak ve bunu C programlama dili ile uygun veri yapıları kullanarak inşa etmektir. Odaklanılması gereken ana noktalar algoritma maliyet analizleri, performans optimizasyonu ve hafıza (bellek) yönetimidir. Dinamik olarak girilen farklı boyutlardaki veri setlerinde en verimli kararların alınmasını gerektirir.
 
-## **Instructions**
+## **Instructions (Kurulum ve Çalıştırma)**
 
 Projeyi indirip çalıştırmak için sisteminizde Unix/Linux bazlı bir ortam, `gcc`/`cc` derleyicisi ve `make` aracının bulunduğundan emin olun.
 
@@ -54,14 +54,14 @@ Ayrıca programın davranışını özelleştirmek ve sıralama stratejisini zor
 ```
 Dilerseniz bu argümanlarla algoritmaların sınırlarını deneyebilir veya doğruluk ölçümü için harici bash checker'lardan faydalanabilirsiniz.
 
-## **Resources**
+## **Resources (Kaynaklar)**
 
 Proje geliştirme sürecinde, C programlama dilinin veri yapıları konseptinden ve pek çok makaleden faydalanılmıştır. Bunlardan en önemlileri aşağıdadır:
 - [Radix Sort Algorithm - Wikipedia](https://en.wikipedia.org/wiki/Radix_sort)
 - [Selection Sort - GeeksforGeeks](https://www.geeksforgeeks.org/selection-sort/)
 - Zaman/İşlem Karmaşıklığı (Big-O Notation) rehber kaynakları.
 
-## **Technical Choices and Algorithms Selected**
+## **Technical Choices and Algorithms Selected (Teknik Seçimler ve Algoritmalar)**
 
 Projemizde, kullanılacak sıralama algoritmasının belirlenmesinde iki ana karar mekanizması mevcuttur:
 
