@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 00:25:35 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/12 18:50:30 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/26 02:13:03 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,11 @@ void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 
 	if (!a || !b || !op || a->size < 2)
 		return ;
+	if (a->size <= 5)
+	{
+		selection_sort(a, b, op);
+		return ;
+	}
 	convert_to_index(a);
 	if (a->size <= 100)
 		offset = 15;
