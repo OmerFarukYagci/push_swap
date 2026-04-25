@@ -15,7 +15,7 @@ Projeyi indirip çalıştırmak için sisteminizde Unix/Linux bazlı bir ortam, 
 ### Derleme ve İnşa
 Terminalinizde proje dizinine giderek aşağıdaki komutla programı derleyebilirsiniz:
 ```bash
-make
+make || make all
 ```
 
 ### Temizlik İşlemleri
@@ -93,3 +93,9 @@ Uygulanan algoritmaların işleyiş ayrıntıları şu şekildedir:
 ### 3. Radix Sort (Taban Sıralaması)
 **Detay:** `push_swap` programına bit (bitwise) düzeyinde entegre edilmiş geleneksel Radix algoritmasıdır. İşlem öncesi orijinal sayılar kendi değerlerine göre `0`'dan `N-1`'e kadar (normalize edilerek) indekslenir. Bu sayede negatif, uç veya birbirinden çok uzak devasa tam sayılar sorunsuzca işlenir. Stack A'daki indeks bitleri her iterasyonda `0` ve `1` olarak taranır; `0` olanlar B'ye (`pb`) yollanırken, `1` olanlar A'da döndürülür (`ra`).
 **Neden ve Ne Zaman Seçilir?:** Liste fazlasıyla dağınık ve yüksek oranda karmakarışık olduğunda (`disorder >= 0.5f`) devreye girer. Değerlerin tamamen kaotik şekilde sıralandığı zorlu (yüksek düzensizlikteki) senaryolarda hamle tasarrufu ve başarı oranı açısından en kararlı algoritmadır.
+
+### KATKIDA BULUNANLAR
+
+Ömer Faruk YAĞCI (omyagci) : Simple Algoritması, Parser Kodları, Sorting Algoritmaları, Struct Yapı Kurulumu, Header Dosyası, BenchMode, Main Fonksiyonu, README.md
+
+Yiğithan FIRAT (yfirat) : Complex ve Medium Algoritma Kodları, Sorting Algoritmaları, Split Fonksiyonu, Makefile, Header Dosyası, Main Fonksiyonu, README.md
