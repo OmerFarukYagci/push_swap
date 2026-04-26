@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: yfirat <yfirat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:53:01 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/16 17:54:06 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/27 00:53:21 by yfirat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ t_number_node	*new_node(int value)
 	new_node = malloc(sizeof(t_number_node));
 	if (!new_node)
 		return (NULL);
-	new_node ->value = value;
-	new_node ->next = NULL;
+	new_node->value = value;
+	new_node->next = NULL;
 	return (new_node);
 }
 
@@ -36,7 +36,7 @@ void	add_stack_back(t_stack *stack, t_number_node *new_node)
 		stack->top = new_node;
 	else
 	{
-		last = stack ->top;
+		last = stack->top;
 		while (last->next != NULL)
 			last = last->next;
 		last->next = new_node;
