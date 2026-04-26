@@ -75,5 +75,6 @@ void			selection_sort(t_stack *a, t_stack *b, t_operation_counter *op);
 void			bench_mod(t_settings *set, t_operation_counter *op,	float dsr);
 void			chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op);
 void			convert_to_index(t_stack *a);
+void			calc_i(int *index_array, t_stack *a);
 
 #endif
