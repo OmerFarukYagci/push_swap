@@ -13,30 +13,6 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
-static void	calc_i(int *index_array, t_stack *a)
-{
-	int				i;
-	int				new_index;
-	t_number_node	*runner_node;
-	t_number_node	*temp_node;
-
-	i = 0;
-	temp_node = a->top;
-	while (temp_node)
-	{
-		new_index = 0;
-		runner_node = a->top;
-		while (runner_node)
-		{
-			if (temp_node->value > runner_node->value)
-				new_index++;
-			runner_node = runner_node->next;
-		}
-		index_array[i++] = new_index;
-		temp_node = temp_node->next;
-	}
-}
-
 void	convert_to_index(t_stack *a)
 {
 	int				i;
@@ -112,6 +88,16 @@ static void	push_back_a(t_stack *a, t_stack *b, t_operation_counter *op)
 	}
 }
 
+static void	init_vars(t_stack *a, int *i, int *offset)
+{
+	*i = 0;
+	if (a->size <= 100)
+		*offset = 15;
+	else
+		*offset = 35;
+	convert_to_index(a);
+}
+
 void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 {
 	int	i;
@@ -124,12 +110,8 @@ void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 		selection_sort(a, b, op);
 		return ;
 	}
-	convert_to_index(a);
-	if (a->size <= 100)
-		offset = 15;
-	else
-		offset = 35;
 	i = 0;
+	init_vars(a, &i, &offset);
 	while (a->size > 0)
 	{
 		if (a->top->value <= i++)
