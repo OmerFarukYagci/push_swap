@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:07:19 by omyagci           #+#    #+#             */
-/*   Updated: 2026/03/28 12:36:20 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/26 18:21:16 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,39 +28,6 @@ void	sa(t_stack *a, int printable, t_operation_counter *operate)
 	if (operate)
 	{
 		operate->sa = operate->sa + 1;
-		operate->total_opr = operate->total_opr + 1;
-	}
-}
-
-void	sb(t_stack *b, int printable, t_operation_counter *operate)
-{
-	int	tmp;
-
-	if (!b || b->size < 2)
-		return ;
-	tmp = 0;
-	tmp = b->top->value;
-	b->top->value = b->top->next->value;
-	b->top->next->value = tmp;
-	if (printable == 1)
-		write(1, "sb\n", 3);
-	if (operate)
-	{
-		operate->sb = operate->sb + 1;
-		operate->total_opr = operate->total_opr + 1;
-	}
-}
-
-void	ss(t_stack *a, t_stack *b, t_operation_counter *operate)
-{
-	if (!a || !b || a->size < 2 || b->size < 2)
-		return ;
-	sa(a, 0, NULL);
-	sb(b, 0, NULL);
-	write(1, "ss\n", 3);
-	if (operate)
-	{
-		operate->ss = operate->ss + 1;
 		operate->total_opr = operate->total_opr + 1;
 	}
 }
