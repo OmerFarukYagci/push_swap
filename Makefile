@@ -16,13 +16,16 @@ SRCS = main.c \
 	   simple_algorithm.c \
 	   bench_utils.c \
 	   medium_algorithm.c \
-	   medium_algorithm_utils.c \
+	   medium_algorithm_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): push_swap.h $(OBJS) 
+%.o: %.c push_swap.h
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
@@ -31,7 +34,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean
-	make all
+re: fclean all
 
 .PHONY: all clean fclean re
