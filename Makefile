@@ -16,7 +16,7 @@ SRCS = main.c \
 	   simple_algorithm.c \
 	   bench_utils.c \
 	   medium_algorithm.c \
-	   utils.c \
+	   medium_algorithm_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 
