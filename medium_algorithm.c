@@ -6,24 +6,24 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 00:25:35 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/27 13:09:01 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/27 14:35:11 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-void	convert_to_index(t_stack *a)
+int	convert_to_index(t_stack *a)
 {
 	int				i;
 	int				*index_array;
 	t_number_node	*temp_node;
 
 	if (!a || !a->top || a->size <= 0)
-		return ;
+		return (0);
 	index_array = malloc(sizeof(int) * a->size);
 	if (!index_array)
-		return ;
+		return (0);
 	calc_i(index_array, a);
 	temp_node = a->top;
 	i = 0;
@@ -33,6 +33,7 @@ void	convert_to_index(t_stack *a)
 		temp_node = temp_node->next;
 	}
 	free(index_array);
+	return (1);
 }
 
 static int	get_max_pos(t_stack *b)
@@ -88,14 +89,14 @@ static void	push_back_a(t_stack *a, t_stack *b, t_operation_counter *op)
 	}
 }
 
-static void	init_vars(t_stack *a, int *i, int *offset)
+static int	init_vars(t_stack *a, int *i, int *offset)
 {
 	*i = 0;
 	if (a->size <= 100)
 		*offset = 15;
 	else
 		*offset = 35;
-	convert_to_index(a);
+	return (convert_to_index(a));
 }
 
 void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
@@ -110,8 +111,8 @@ void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 		selection_sort(a, b, op);
 		return ;
 	}
-	i = 0;
-	init_vars(a, &i, &offset);
+	if (!init_vars(a, &i, &offset))
+		return ;
 	while (a->size > 0)
 	{
 		if (a->top->value <= i++)

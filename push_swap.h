@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 15:35:06 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/27 13:09:01 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/27 14:28:48 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void			radix_sort(t_stack *a, t_stack *b, t_operation_counter *op);
 void			selection_sort(t_stack *a, t_stack *b, t_operation_counter *op);
 void			bench_mod(t_settings *set, t_operation_counter *op,	float dsr);
 void			chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op);
-void			convert_to_index(t_stack *a);
+int				convert_to_index(t_stack *a);
 void			calc_i(int *index_array, t_stack *a);
 
 #endif
