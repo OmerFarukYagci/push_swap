@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:35:08 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/26 02:29:01 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/27 13:09:01 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	execute_radix(t_stack *a, t_stack *b,
 	while (j < size)
 	{
 		if (((a->top->value >> i) & 1) == 1)
-			ra(a, 1, op);
+			ra(a, op);
 		else
 			pb(a, b, op);
 		j++;

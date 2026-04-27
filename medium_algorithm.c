@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 00:25:35 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/26 02:13:03 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/27 13:09:01 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	push_back_a(t_stack *a, t_stack *b, t_operation_counter *op)
 		{
 			while (max_pos > 0)
 			{
-				rb(b, 1, op);
+				rb(b, op);
 				max_pos--;
 			}
 		}
@@ -80,7 +80,7 @@ static void	push_back_a(t_stack *a, t_stack *b, t_operation_counter *op)
 		{
 			while (max_pos < b->size)
 			{
-				rrb(b, 1, op);
+				rrb(b, op);
 				max_pos++;
 			}
 		}
@@ -117,12 +117,12 @@ void	chunk_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 		if (a->top->value <= i++)
 		{
 			pb(a, b, op);
-			rb(b, 1, op);
+			rb(b, op);
 		}
 		else if (a->top->value <= (i++) + offset)
 			pb(a, b, op);
 		else
-			ra(a, 1, op);
+			ra(a, op);
 	}
 	push_back_a(a, b, op);
 }

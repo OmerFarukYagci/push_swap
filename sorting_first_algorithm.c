@@ -6,14 +6,14 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:07:19 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/26 18:21:16 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/27 13:09:01 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 
-void	sa(t_stack *a, int printable, t_operation_counter *operate)
+void	sa(t_stack *a, t_operation_counter *operate)
 {
 	int	tmp;
 
@@ -23,8 +23,7 @@ void	sa(t_stack *a, int printable, t_operation_counter *operate)
 	tmp = a->top->value;
 	a->top->value = a->top->next->value;
 	a->top->next->value = tmp;
-	if (printable == 1)
-		write(1, "sa\n", 3);
+	write(1, "sa\n", 3);
 	if (operate)
 	{
 		operate->sa = operate->sa + 1;

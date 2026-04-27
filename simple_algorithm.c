@@ -6,7 +6,7 @@
 /*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:48:58 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/26 01:19:51 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/27 13:09:01 by omyagci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static	void	left_side(int *i, t_stack *a, t_operation_counter *op)
 {
 	while ((*i) > 0)
 	{
-		ra(a, 1, op);
+		ra(a, op);
 		(*i)--;
 	}
 }
@@ -51,7 +51,7 @@ static	void	right_side(int *i, t_stack *a, t_operation_counter *op, int s)
 {
 	while ((*i) < s)
 	{
-		rra(a, 1, op);
+		rra(a, op);
 		(*i)++;
 	}
 }
@@ -68,13 +68,13 @@ static void	sort_three(t_stack *a, t_operation_counter *op)
 	second = a->top->next->value;
 	third = a->top->next->next->value;
 	if (first > second && first > third)
-		ra(a, 1, op);
+		ra(a, op);
 	else if (second > first && second > third)
-		rra(a, 1, op);
+		rra(a, op);
 	first = a->top->value;
 	second = a->top->next->value;
 	if (first > second)
-		sa(a, 1, op);
+		sa(a, op);
 }
 
 void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *op)
@@ -87,7 +87,7 @@ void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 	if (a->size == 2)
 	{
 		if (a->top->value > a->top->next->value)
-			sa(a, 1, op);
+			sa(a, op);
 		return ;
 	}
 	while (a->size > 3)
