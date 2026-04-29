@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omyagci <omyagci@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: yfirat <yfirat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 22:48:58 by omyagci           #+#    #+#             */
-/*   Updated: 2026/04/27 13:09:01 by omyagci          ###   ########.fr       */
+/*   Updated: 2026/04/29 17:59:32 by yfirat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static	int	get_min_node(t_stack *a)
 	int				min_node_index;
 	int				temp_node_index;
 
-	if (!a || !a->top)
-		return (-1);
 	temp = a->top;
 	min_value = temp->value;
 	min_node_index = 0;
@@ -82,7 +80,7 @@ void	selection_sort(t_stack *a, t_stack *b, t_operation_counter *op)
 	int	size;
 	int	min_node_index;
 
-	if (!a || !b || !op || a->size < 2)
+	if (!a || !b || !op || a->size < 2 || !a->top)
 		return ;
 	if (a->size == 2)
 	{
