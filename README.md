@@ -96,6 +96,6 @@ Uygulanan algoritmaların işleyiş ayrıntıları şu şekildedir:
 
 ### CONTRIBUTORS (KATKIDA BULUNANLAR)
 
-Ömer Faruk YAĞCI (omyagci) : Simple Algoritması, Parser Kodları, Sorting Algoritmaları, Struct Yapı Kurulumu, Header Dosyası, BenchMode, Main Fonksiyonu, README.md
+Ömer Faruk YAĞCI (omyagci) : Simple Algoritması, Medium Algoritma Kodları, Parser Kodları, Sorting Algoritmaları, Struct Yapı Kurulumu, Header Dosyası, BenchMode, Main Fonksiyonu, README.md
 
 Yiğithan FIRAT (yfirat) : Complex ve Medium Algoritma Kodları, Sorting Algoritmaları, Split Fonksiyonu, Makefile, Header Dosyası, Main Fonksiyonu, README.md
